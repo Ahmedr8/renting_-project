@@ -1,0 +1,31 @@
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 40px 0;
+    
+    h5 {
+      color: #ffffff;
+    }
+    
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    a {
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    
+    hr {
+      border-color: #ffffff;
+    }
+    
+    .list-inline-item {
+      margin-right: 10px;
+    }
+  }
+  

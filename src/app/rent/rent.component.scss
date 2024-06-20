@@ -1,0 +1,69 @@
+.background-image {
+    min-height: calc(100vw * 700 / 1600); /* Example: Adjust based on your image aspect ratio */
+    min-width: 100vw; /* Ensure the component takes at least full viewport width */
+    background-image: url('rent.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+
+  .orange-card {
+    position: relative;
+    z-index: 1; /* Ensure the orange card is above the background image */
+    background-color: rgb(255, 94, 0);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for depth */
+  }
+  h1{
+    font-size: 5rem;
+    font-family: Georgia, serif;
+  }
+  
+  .card-container {
+    position: absolute;
+    top: 65%; /* Position in the middle vertically */
+    left: 50%; /* Position in the middle horizontally */
+    transform: translate(-50%, -50%); /* Center the card */
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Set a maximum width */
+    height: auto; /* Allow height to adjust based on content */
+    max-height: 80%; /* Ensure it doesn't overflow */
+    z-index: 2; /* Ensure the card is above the background image */
+  }
+  
+  .card {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for depth */
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .share-location-btn {
+    background-color: rgb(255, 94, 0);
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.share-location-btn:hover {
+    /* Optionnel : style pour l'interaction au survol */
+    background-color: rgb(210, 78, 0);
+}
