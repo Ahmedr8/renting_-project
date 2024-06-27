@@ -11,8 +11,8 @@ interface IconUrls {
 export class RentComponent implements OnInit {
   routeInfos: RouteInfo[] = [];
   property={
-    coordinatesLat:36.866537 ,
-    coordinatesLng:10.164723
+    coordinatesLat:36.884453 ,
+    coordinatesLng:10.220660
   }
   constructor() { }
   iconUrls: IconUrls = {

@@ -67,3 +67,19 @@
     /* Optionnel : style pour l'interaction au survol */
     background-color: rgb(210, 78, 0);
 }
+
+.agent-info {
+  margin: 4px 4px;
+}
+.md-icon {
+  width: 32px;
+  height: 32px;
+}
+.maps-travel-item {
+  >div{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+  }
+}

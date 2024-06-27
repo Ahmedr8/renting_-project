@@ -48,9 +48,13 @@ export class GoogleMapsComponent implements AfterViewInit {
       // Get current user's location and calculate routes
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(async (position) => {
+          // const userLocation = {
+          //   lat: position.coords.latitude,
+          //   lng: position.coords.longitude
+          // };
           const userLocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
+            lat: 36.881070, 
+            lng: 10.227742
           };
           this.addMarker(userLocation, 'Your Location', userLocationIcon);
 
