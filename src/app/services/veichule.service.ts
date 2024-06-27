@@ -13,7 +13,7 @@ export interface Veichule {
   providedIn: 'root'
 })
 export class VeichuleService {
-  private apiUrl = 'YOUR_BACKEND_API_URL'; // Replace with your backend API URL
+  private apiUrl = 'http://localhost:3000'; // Replace with your backend API URL
 
   constructor(private http: HttpClient) {}
 

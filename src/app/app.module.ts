@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ import { GoogleMapsComponent } from './google-maps/google-maps.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
