@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { Veichule, VeichuleService } from '../../services/veichule.service';
+import { EditVeichuleDialog } from './edit-veichule-dialog.component';
 
 @Component({
   selector: 'app-veichule',
@@ -6,10 +10,40 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./veichule.component.scss']
 })
 export class VeichuleComponent implements OnInit {
+  veichules!: MatTableDataSource<Veichule>;
+  displayedColumns: string[] = ['id_vehicule', 'marque', 'modele', 'actions'];
 
-  constructor() { }
+  constructor(private veichuleService: VeichuleService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
+    this.loadVeichules();
   }
 
+  loadVeichules(): void {
+    this.veichuleService.getVeichules().subscribe(data => {
+      this.veichules = new MatTableDataSource(data);
+    });
+  }
+
+  deleteVeichule(id: string): void {
+    this.veichuleService.deleteVeichule(id).subscribe(() => {
+      this.loadVeichules();
+    });
+  }
+
+  editVeichule(veichule: Veichule): void {
+    // Open a dialog to edit veichule details
+    const dialogRef = this.dialog.open(EditVeichuleDialog, {
+      width: '250px',
+      data: veichule
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.veichuleService.updateVeichule(result).subscribe(() => {
+          this.loadVeichules();
+        });
+      }
+    });
+  }
 }

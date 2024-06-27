@@ -10,12 +10,19 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { VeichuleComponent } from './veichule/veichule.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminComponent } from './admin.component';
+import { EditVeichuleDialog } from './veichule/edit-veichule-dialog.component';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     VeichuleComponent,
     SidebarComponent,
-    AdminComponent
+    AdminComponent,
+    EditVeichuleDialog
   ],
   imports: [
     CommonModule,
@@ -25,6 +32,12 @@ import { AdminComponent } from './admin.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-  ]
+    MatTableModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+  ],
+  entryComponents: [EditVeichuleDialog]
 })
 export class AdminModule { }
