@@ -14,8 +14,6 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { RentComponent } from './rent/rent.component';
 import { GoogleMapsComponent } from './google-maps/google-maps.component';
-import { AdminComponent } from './admin/admin.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [		
@@ -25,8 +23,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HomeComponent,
     RentComponent,
     GoogleMapsComponent,
-      AdminComponent,
-      SidebarComponent
+      
    ],
   imports: [
     BrowserModule,

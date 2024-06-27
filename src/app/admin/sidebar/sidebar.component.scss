@@ -23,7 +23,7 @@ $degrade1:  rgb(35,33,37);
 $degrade2:  linear-gradient(90deg, rgba(35,33,37,1) 0%, rgba(10,24,45,1) 100%);
 $notificationColor: #aac0e2;
 
-$pictUser : url('../../assets/images/pict-user.jpg');
+$pictUser : url('../../../assets/images/pict-user.jpg');
 
 
 /** Variable **/
@@ -163,23 +163,23 @@ main{
 
 
 
-@import '../../assets/styles/animation.scss';
-@import '../../assets/styles/name-space.scss';
-@import '../../assets/styles/btn-css.scss';
-@import '../../assets/styles/auth.scss';
-@import '../../assets/styles/sidebar.scss';
-@import '../../assets/styles/datatable.scss';
-@import '../../assets/styles/liste-user.scss';
-@import '../../assets/styles/dialog-user.scss';
-@import '../../assets/styles/view-user.scss';
-@import '../../assets/styles/navbar.scss';
-@import '../../assets/styles/card-and-accordion.scss';
-@import '../../assets/styles/notification.scss';
-@import '../../assets/styles/timeline.scss';
-@import '../../assets/styles/stepper.scss';
-@import '../../assets/styles/formulaire.scss';
-@import '../../assets/styles/workflow.scss';
-@import '../../assets/styles/login-google.scss';
+@import '../../../assets/styles/animation.scss';
+@import '../../../assets/styles/name-space.scss';
+@import '../../../assets/styles/btn-css.scss';
+@import '../../../assets/styles/auth.scss';
+@import '../../../assets/styles/sidebar.scss';
+@import '../../../assets/styles/datatable.scss';
+@import '../../../assets/styles/liste-user.scss';
+@import '../../../assets/styles/dialog-user.scss';
+@import '../../../assets/styles/view-user.scss';
+@import '../../../assets/styles/navbar.scss';
+@import '../../../assets/styles/card-and-accordion.scss';
+@import '../../../assets/styles/notification.scss';
+@import '../../../assets/styles/timeline.scss';
+@import '../../../assets/styles/stepper.scss';
+@import '../../../assets/styles/formulaire.scss';
+@import '../../../assets/styles/workflow.scss';
+@import '../../../assets/styles/login-google.scss';
 /**************************************************************/
 /** Scroll Bar **/
 /* width */
