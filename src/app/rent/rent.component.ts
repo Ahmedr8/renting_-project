@@ -16,8 +16,8 @@ export class RentComponent implements OnInit {
   }
   constructor() { }
   iconUrls: IconUrls = {
-    'DRIVING': '../google-maps/images/driving.svg',
-    'TRANSIT': '../google-maps/images/walking.svg', 
+    'DRIVING': '../../assets/driving.svg',
+    'TRANSIT': '../../assets/walking.svg', 
   };
   ngOnInit(): void {
   }

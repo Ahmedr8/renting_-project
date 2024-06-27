@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, Output, EventEmitter, Input, OnInit } from '@angular/core';
 import { RouteInfo } from './maps-route.model';
-const propertyIcon = './images/maps-property-location.svg';
-const userLocationIcon = './images/maps-my-location.svg';
+const propertyIcon = '../../assets/maps-property-location.svg';
+const userLocationIcon = '../../assets/maps-my-location.svg';
 declare const google: any;
 @Component({
   selector: 'app-google-maps',

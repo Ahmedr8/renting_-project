@@ -1,0 +1,86 @@
+<mat-toolbar class="header">
+  <div class="nav-left">
+    <button class="btn-mobile-principal"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button> 
+           
+        <button mat-button class="btn-chevron" onclick="isExp()" (click)="isExpanded = !isExpanded">
+          <mat-icon mat-list-icon class="chevron-button sidenav-button" [ngClass]="{'rotated': isExpanded}">
+            menu
+          </mat-icon>
+        </button>
+        <a class="navbar-brand me-0 px-3 fs-6 slide-in-blurred-top" href="#" [routerLink]="'liste-user'">
+          <img src="../../../../../assets/images/tanitlabailogo.png" class="logo">
+        </a>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container" autosize id="sidenav" >
+
+  <mat-sidenav #drawer class="sidenav menu swing-in-left-bck" 
+              [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+              [mode]="(isHandset$ | async) ? 'over' : 'side'" 
+              [opened]="(isHandset$ | async) === false" 
+              [ngClass]="{'new-width': isExpanded}" >
+    
+    <mat-nav-list class=" menu-style" [ngClass]="{'new-style-css': isExpanded}">
+      <mat-list-item [routerLink]="'liste-user'" routerLinkActive="active" class="list-item">
+        <mat-icon mat-list-icon class="icon-link" >group</mat-icon>
+        <span >Home</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'view-user'" routerLinkActive="active" class="list-item">
+        <mat-icon mat-list-icon class="icon-link">person</mat-icon>
+        <span >User</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'liste-notification'" routerLinkActive="active" class="list-item">
+        <mat-icon mat-list-icon class="icon-link">forward_to_inbox</mat-icon>
+        <span >Messages</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'liste-accordion'" routerLinkActive="active" class="list-item">
+        <mat-icon mat-list-icon class="icon-link">stairs</mat-icon>
+        <span >Accordion</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'liste-card'" routerLinkActive="active" class="list-item">
+        <mat-icon mat-list-icon class="icon-link">dashboard</mat-icon>
+        <span >Card</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'timeline-vertical'" routerLinkActive="active" class="list-item">
+        <mat-icon mat-list-icon class="icon-link" >timeline</mat-icon>
+        <span >Timeline</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'stepper-horizontal'" routerLinkActive="active" class="list-item">
+        <mat-icon mat-list-icon class="icon-link" >123</mat-icon>
+        <span >Stepper Horizontal</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'stepper-vertical'" routerLinkActive="active" class="list-item">
+        <mat-icon mat-list-icon class="icon-link" >123</mat-icon>
+        <span >Stepper Vertical</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'form-app'" routerLinkActive="active" class="list-item">
+        <mat-icon mat-list-icon class="icon-link" >check_box</mat-icon>
+        <span >Form Angular Material</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'bootstrap-form'" routerLinkActive="active" class="list-item">
+        <mat-icon mat-list-icon class="icon-link" >radio_button_checked</mat-icon>
+        <span >Bootstrap Form</span>
+      </mat-list-item>
+      <mat-list-item [routerLink]="'workflow'" routerLinkActive="active" class="list-item">
+        <mat-icon mat-list-icon class="icon-link" >dashboard_customize</mat-icon>
+        <span >Workflow</span>
+      </mat-list-item>
+      
+    </mat-nav-list>
+
+
+  </mat-sidenav>
+
+  <mat-sidenav-content >
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+ 
+</mat-sidenav-container>
