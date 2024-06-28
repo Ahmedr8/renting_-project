@@ -4,24 +4,24 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Louer une trottinette ou un scooter</h5>
-            <form>
+            <div>
               <div class="row mb-3">
                 <div class="col-md-6">
                   <label for="rentalType" class="form-label">Type de location</label>
-                  <select class="form-select" id="rentalType" aria-label="Sélectionnez le type de location">
+                  <select class="form-select" id="rentalType" aria-label="Sélectionnez le type de location" [(ngModel)]="type">
                     <option value="trottinet">Trottinette</option>
                     <option value="scooter">Scooter</option>
                   </select>
                 </div>
                 <div class="col-md-6">
-                  <label for="startDate" class="form-label">Date de début</label>
-                  <input type="date" class="form-control" id="startDate">
+                  <label for="startDate" class="form-label" >Date de début</label>
+                  <input type="date" class="form-control" id="startDate" [(ngModel)]="dateDebut">
                 </div>
               </div>
               <div class="row mb-3">
                 <div class="col-md-6">
-                  <label for="endDate" class="form-label">Date de fin</label>
-                  <input type="date" class="form-control" id="endDate">
+                  <label for="endDate" class="form-label" >Date de fin</label>
+                  <input type="date" class="form-control" id="endDate" [(ngModel)]="dateFin">
                 </div>
                 <div class="col-md-6">
                   <label for="name" class="form-label">Votre nom</label>
@@ -34,8 +34,8 @@
                   <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
                 </div>
               </div>
-              <button type="submit" class="share-location-btn">Louer maintenant</button>
-            </form>
+              <button type="submit" class="share-location-btn" (click)="rent()">Louer maintenant</button>
+            </div>
           </div>
         </div>
       </div>

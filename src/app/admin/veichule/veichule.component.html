@@ -1,7 +1,10 @@
+<div class="d-flex m-3" style="justify-content: flex-end;">
+  <button mat-raised-button color="primary" (click)="addVeichule()">Add Véhicule</button>
+</div>
 <mat-table [dataSource]="veichules" class="mat-elevation-z8">
     <ng-container matColumnDef="id_vehicule">
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-      <mat-cell *matCellDef="let veichule"> {{veichule.id_vehicule}} </mat-cell>
+      <mat-cell *matCellDef="let veichule"> {{veichule._id}} </mat-cell>
     </ng-container>
   
     <ng-container matColumnDef="marque">
@@ -13,12 +16,18 @@
       <mat-header-cell *matHeaderCellDef> Modele </mat-header-cell>
       <mat-cell *matCellDef="let veichule"> {{veichule.modele}} </mat-cell>
     </ng-container>
+
+    <ng-container matColumnDef="prixparjour">
+      <mat-header-cell *matHeaderCellDef> prix par jour </mat-header-cell>
+      <mat-cell *matCellDef="let veichule"> {{veichule.prixparjour}} dt</mat-cell>
+    </ng-container>
+    
   
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
       <mat-cell *matCellDef="let veichule">
         <button mat-button (click)="editVeichule(veichule)">Edit</button>
-        <button mat-button color="warn" (click)="deleteVeichule(veichule.id_vehicule)">Delete</button>
+        <button mat-button color="warn" (click)="deleteVeichule(veichule._id)">Delete</button>
       </mat-cell>
     </ng-container>
   

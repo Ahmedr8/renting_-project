@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { Veichule, VeichuleService } from '../../services/veichule.service';
 import { EditVeichuleDialog } from './edit-veichule-dialog.component';
+import { AddVeichuleDialog } from './add-veichule-dialog.component';
 
 @Component({
   selector: 'app-veichule',
@@ -11,7 +12,7 @@ import { EditVeichuleDialog } from './edit-veichule-dialog.component';
 })
 export class VeichuleComponent implements OnInit {
   veichules!: MatTableDataSource<Veichule>;
-  displayedColumns: string[] = ['id_vehicule', 'marque', 'modele', 'actions'];
+  displayedColumns: string[] = ['id_vehicule', 'marque', 'modele', 'prixparjour','actions'];
 
   constructor(private veichuleService: VeichuleService, public dialog: MatDialog) {}
 
@@ -22,6 +23,7 @@ export class VeichuleComponent implements OnInit {
   loadVeichules(): void {
     this.veichuleService.getVeichules().subscribe(data => {
       this.veichules = new MatTableDataSource(data);
+      console.log(this.veichules.data)
     });
   }
 
@@ -41,6 +43,22 @@ export class VeichuleComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.veichuleService.updateVeichule(result).subscribe(() => {
+          this.loadVeichules();
+        });
+      }
+    });
+  }
+
+  addVeichule(): void {
+     // Open a dialog to edit veichule details
+     const dialogRef = this.dialog.open(AddVeichuleDialog, {
+      width: '250px',
+      data: { marque: '', modele: '', etat: '',prixparjour:'' } as unknown as Veichule
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.veichuleService.addVeichule(result).subscribe(() => {
           this.loadVeichules();
         });
       }

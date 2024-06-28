@@ -3,29 +3,35 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Veichule {
+  _id: any;
   id_vehicule: string;
   marque: string;
   modele: string;
   etats: any;
+  type:any,
+  prixparjour:any
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class VeichuleService {
-  private apiUrl = 'http://localhost:3000'; // Replace with your backend API URL
+  private apiUrl = 'http://localhost:5000/vehicules'; // Replace with your backend API URL
 
   constructor(private http: HttpClient) {}
 
   getVeichules(): Observable<Veichule[]> {
-    return this.http.get<Veichule[]>(`${this.apiUrl}/veichules`);
+    return this.http.get<Veichule[]>(`${this.apiUrl}/vehicules`);
   }
 
   deleteVeichule(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/veichules/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
   updateVeichule(veichule: Veichule): Observable<Veichule> {
-    return this.http.put<Veichule>(`${this.apiUrl}/veichules/${veichule.id_vehicule}`, veichule);
+    return this.http.put<Veichule>(`${this.apiUrl}/${veichule._id}`, veichule);
+  }
+  addVeichule(veichule: Veichule): Observable<Veichule> {
+    return this.http.post<Veichule>(`${this.apiUrl}/addVehicule`, veichule);
   }
 }
