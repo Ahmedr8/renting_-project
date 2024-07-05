@@ -19,7 +19,19 @@
 
     <ng-container matColumnDef="prixparjour">
       <mat-header-cell *matHeaderCellDef> prix par jour </mat-header-cell>
-      <mat-cell *matCellDef="let veichule"> {{veichule.prixparjour}} dt</mat-cell>
+      <mat-cell *matCellDef="let veichule"> {{veichule.prixparjour}} $</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+      <mat-cell *matCellDef="let veichule"> {{veichule.type}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="available">
+      <mat-header-cell *matHeaderCellDef> Available </mat-header-cell>
+      <mat-cell *matCellDef="let veichule" style="justify-content: center;"> 
+        <span [ngClass]="{'available': veichule.av, 'not-available': !veichule.av}"> {{veichule.available}} </span>
+      </mat-cell>
     </ng-container>
     
   

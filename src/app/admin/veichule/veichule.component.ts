@@ -12,7 +12,7 @@ import { AddVeichuleDialog } from './add-veichule-dialog.component';
 })
 export class VeichuleComponent implements OnInit {
   veichules!: MatTableDataSource<Veichule>;
-  displayedColumns: string[] = ['id_vehicule', 'marque', 'modele', 'prixparjour','actions'];
+  displayedColumns: string[] = ['id_vehicule', 'marque', 'modele', 'prixparjour','type','available','actions'];
 
   constructor(private veichuleService: VeichuleService, public dialog: MatDialog) {}
 
@@ -23,6 +23,15 @@ export class VeichuleComponent implements OnInit {
   loadVeichules(): void {
     this.veichuleService.getVeichules().subscribe(data => {
       this.veichules = new MatTableDataSource(data);
+      this.veichules.data.forEach(vehicle => {
+        if (vehicle.available) {
+            vehicle.available = 'available';
+            vehicle.av=true
+        } else {
+            vehicle.available = 'not available';
+            vehicle.av=false
+        }
+      });
       console.log(this.veichules.data)
     });
   }

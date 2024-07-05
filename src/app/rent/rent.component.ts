@@ -22,6 +22,8 @@ export class RentComponent implements OnInit {
   dateFin!:Date;
   type:any
   price:any
+  email:any
+  id_rent: any;
   constructor(private rentService:RentService, public dialog: MatDialog) { }
   iconUrls: IconUrls = {
     'DRIVING': '../../assets/driving.svg',
@@ -37,15 +39,31 @@ export class RentComponent implements OnInit {
   rent(){
     console.log('renting')
     const data={
+      tarif:0,
       dateDebut:this.dateDebut ,
       dateFin:this.dateFin ,
-      type:this.type
+      type:this.type,
+      id_client:this.email,
+      paid:false,
+      id_vehicule:'',
+      _id:Object
     }
-    this.rentService.Renting(data).subscribe(() => {
-      console.log('done')
+    this.rentService.Renting(data).subscribe({
+      next: (responseData) => {
+        console.log('Received data:', responseData); // Log the received data
+        this.price = responseData.tarif;
+        this.id_rent=responseData._id // Update component property
+      },
+      error: (error) => {
+        console.error('Error occurred:', error); // Handle errors if any
+      },
+      complete: () => {
+        console.log('Subscription completed'); // Handle completion
+        // Additional logic after subscription completes
+        console.log(this.price)
+        this.openPaymentDialog()
+      }
     });
-    this.price=100
-    this.openPaymentDialog()
   }
 
   openPaymentDialog(): void {
@@ -57,6 +75,25 @@ export class RentComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         console.log('The dialog was closed with payment data', result);
+        const data={
+          amount:this.price,
+          currency: "usd",
+      payment_method: "pm_card_visa",
+      token:result.cardNumber,
+      id_rent:this.id_rent
+        }
+        this.rentService.payment(data).subscribe({
+          next: (responseData) => {
+            console.log('Received data:', responseData); // Log the received data
+          },
+          error: (error) => {
+            console.error('Error occurred:', error); // Handle errors if any
+          },
+          complete: () => {
+            console.log('payment completed'); // Handle completion
+            // Additional logic after subscription completes
+          }
+        });
       }
     });
   }

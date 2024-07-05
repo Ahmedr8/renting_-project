@@ -3,13 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Veichule {
+  av: any;
   _id: any;
   id_vehicule: string;
   marque: string;
   modele: string;
   etats: any;
   type:any,
-  prixparjour:any
+  prixparjour:any,
+  available:any
+
 }
 
 @Injectable({
